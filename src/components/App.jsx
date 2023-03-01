@@ -26,10 +26,11 @@ export const App = () => {
         setNotFound(response.length === 0);
         if (response.length < page) {
           setHasMore(false);
-        }
+        }else{setHasMore(true)}
       } catch (error) {
       } finally {
         setLoading(false);
+
       }
     };
     if (search) {
@@ -46,12 +47,12 @@ export const App = () => {
     setItems([]);
     setPage(1);
   };
+
   const openModal = largeImageURL => {
-    
-    
-    setModal(prev => prev = !modal );
+    setModal(prev => !prev);
     setPhotoModal(largeImageURL);
   };
+
   const loadMore = () => {
   setPage(prevPage => prevPage + 1)
   }
